@@ -1,0 +1,56 @@
+generated: '2026-08-26'
+method: probed
+source: >-
+  Live probes of northvolt.com, api.northvolt.com, cloud.northvolt.com and
+  login.northvolt.com plus the provider's own published news, 2026-08-26.
+api_lifecycle:
+  versioning_policy: null
+  versioning_scheme: null
+  deprecation_policy: null
+  sunset_header: null
+  sla: null
+  status_page: null
+  changelog: null
+  note: >-
+    Northvolt published no developer program, so there is no API versioning policy,
+    deprecation policy, SLA or status page to record. Nothing here is an omission by this
+    pipeline -- all four were searched for and none exists.
+provider_lifecycle:
+  status: defunct
+  detail: >-
+    Northvolt AB filed for bankruptcy in Sweden on 12 March 2025. Through 2025 its remaining
+    assets in Sweden (Northvolt Ett, Northvolt Ett Expansion, Northvolt Labs), Germany
+    (Northvolt Drei, Heide) and Poland (Northvolt Dwa, Gdansk) were acquired by Lyten.
+  evidence:
+  - url: https://northvolt.com/articles/lyten-to-acquire-all-remaining-northvolt-assets-in-sweden-and-germany/
+    status: 200
+    note: The provider's own announcement of the Lyten asset sale.
+  - url: https://northvolt.com/news/
+    status: 200
+    note: >-
+      Home page "Latest news" is frozen at 30 January 2025; the site footer still reads
+      "(c) 2025 Northvolt AB".
+hosts:
+- host: northvolt.com
+  status: 200
+  state: live-but-frozen
+  note: >-
+    Gatsby 5.13.6 static marketing site, still served from CloudFront. Answers 200 with a
+    soft-404 shell for any unknown path.
+- host: api.northvolt.com
+  status: 502
+  state: dead
+  note: >-
+    DNS resolves to a CloudFront distribution, but every path returns
+    "ERROR: The request could not be satisfied / Failed to contact the origin."
+    The only host Northvolt ever named that looks like an API host no longer has an origin.
+- host: cloud.northvolt.com
+  status: 302
+  state: gated
+  note: >-
+    Redirects to https://login.northvolt.com/?redirect_url=... -- the customer sign-in for
+    the Connected Battery telemetry service. No public documentation or contract behind it.
+- host: login.northvolt.com
+  status: 200
+  state: login-gate
+  note: React SPA titled "Northvolt Login". No OIDC discovery document is served.

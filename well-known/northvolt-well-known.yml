@@ -1,0 +1,148 @@
+generated: '2026-08-26'
+method: probed
+source: >-
+  Live anonymous GET of each /.well-known/ path on every Northvolt host reachable
+  from public DNS (northvolt.com, login.northvolt.com, cloud.northvolt.com,
+  api.northvolt.com), 2026-08-26.
+note: >-
+  NOTHING WAS FOUND. northvolt.com, login.northvolt.com and cloud.northvolt.com are
+  single-page applications that answer HTTP 200 with an HTML shell for EVERY path,
+  including paths that do not exist -- https://northvolt.com/openapi.json and
+  https://northvolt.com/bogus-path-xyz/ both return 200 with <title>404 | Northvolt</title>.
+  Every 200 recorded below is that soft-404 shell, not a served document, so this file
+  records an ABSENCE. No `WellKnown`, `APICatalog`, `SecurityTxt` or `AgentCard` pointer
+  is wired into apis.yml as a result. api.northvolt.com resolves (CloudFront) but its
+  origin is gone: every path returns 502 "Failed to contact the origin".
+hosts:
+- host: northvolt.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    result: soft-404 HTML shell (not a document)
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 200
+    result: soft-404 HTML shell (not a document)
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    result: soft-404 HTML shell (not a document)
+    file: null
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    result: soft-404 HTML shell (not a document)
+    file: null
+  - path: /.well-known/api-catalog
+    status: 200
+    result: soft-404 HTML shell (not a document)
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    result: soft-404 HTML shell (not a document)
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 200
+    result: soft-404 HTML shell (not a document)
+    file: null
+  - path: /.well-known/agent.json
+    status: 200
+    result: soft-404 HTML shell (not a document)
+    file: null
+- host: login.northvolt.com
+  note: Northvolt customer login SPA; cloud.northvolt.com redirects here.
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    result: soft-404 HTML shell (not a document)
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 200
+    result: soft-404 HTML shell (not a document)
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    result: soft-404 HTML shell (not a document)
+    file: null
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    result: soft-404 HTML shell (not a document)
+    file: null
+  - path: /.well-known/api-catalog
+    status: 200
+    result: soft-404 HTML shell (not a document)
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    result: soft-404 HTML shell (not a document)
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 200
+    result: soft-404 HTML shell (not a document)
+    file: null
+  - path: /.well-known/agent.json
+    status: 200
+    result: soft-404 HTML shell (not a document)
+    file: null
+- host: cloud.northvolt.com
+  note: 302s to https://login.northvolt.com/?redirect_url=... -- customer login gate.
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    result: soft-404 HTML shell after redirect to login.northvolt.com
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 200
+    result: soft-404 HTML shell after redirect to login.northvolt.com
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    result: soft-404 HTML shell after redirect to login.northvolt.com
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 200
+    result: soft-404 HTML shell after redirect to login.northvolt.com
+    file: null
+  - path: /.well-known/agent.json
+    status: 200
+    result: soft-404 HTML shell after redirect to login.northvolt.com
+    file: null
+- host: api.northvolt.com
+  note: >-
+    Resolves to a CloudFront distribution but the origin is unreachable; every path
+    returns 502 "ERROR: The request could not be satisfied / Failed to contact the origin."
+  documents:
+  - path: /.well-known/security.txt
+    status: 502
+    result: origin unreachable
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 502
+    result: origin unreachable
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 502
+    result: origin unreachable
+    file: null
+  - path: /.well-known/oauth-protected-resource
+    status: 502
+    result: origin unreachable
+    file: null
+  - path: /.well-known/api-catalog
+    status: 502
+    result: origin unreachable
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 502
+    result: origin unreachable
+    file: null
+  - path: /.well-known/agent.json
+    status: 502
+    result: origin unreachable
+    file: null
+summary:
+  hosts_probed: 4
+  paths_probed: 32
+  documents_found: 0
+  agent_card_found: false
+  security_txt_found: false
+  api_catalog_found: false

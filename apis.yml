@@ -1,8 +1,18 @@
 aid: northvolt
 name: Northvolt
-description: 'Northvolt is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'Northvolt AB is a Swedish lithium-ion battery developer and manufacturer,
+  founded in Stockholm in 2016, that built and operated the Northvolt Ett gigafactory
+  in Skelleftea and the Northvolt Labs R&D and qualification campus in Vasteras, with
+  further sites in Heide (Germany), Gdansk (Poland) and Montreal (Canada). Its product
+  line covered lithium-ion, sodium-ion and lithium-metal cells, the Voltpack Core and
+  Voltpack Mobile System battery energy storage systems, the Revolt battery recycling
+  operation, and a Connected Battery telemetry and fleet-management service. Northvolt
+  AB filed for bankruptcy in Sweden on 12 March 2025; through 2025 its remaining assets
+  in Sweden, Germany and Poland were acquired by Lyten. The company never published a
+  public developer program, API reference or machine-readable API contract; its only
+  named developer-facing surface, api.northvolt.com, no longer has a reachable origin.'
 url: https://raw.githubusercontent.com/api-evangelist/northvolt/refs/heads/main/apis.yml
+image: https://northvolt.com/icons/icon-512x512.png
 x-type: company
 x-source: harvest:secondary-market
 x-tier: stub
@@ -12,6 +22,14 @@ created: '2026-08-26'
 modified: '2026-08-26'
 tags:
 - Company
+- Batteries
+- Energy Storage
+- Manufacturing
+- Electric Vehicles
+- Recycling
+- Sustainability
+- Industrial
+- Energy
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +37,53 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/northvolt-domain-security.yml
 - type: Website
+  url: https://northvolt.com/
+- type: About
+  url: https://northvolt.com/about/
+- type: Blog
+  url: https://northvolt.com/news/
+- type: PressRoom
+  url: https://northvolt.com/press-resources/
+- type: GitHubOrganization
+  url: https://github.com/northvolt
+- type: PrivacyPolicy
+  url: https://northvolt.com/articles/privacy/
+- type: CodeOfConduct
+  url: https://northvolt.com/articles/code-of-conduct/
+- type: SecondaryMarketListing
   url: https://forgeglobal.com/northvolt_stock/
+- type: Packages
+  url: packages/northvolt-packages.yml
+- type: Security
+  url: security/northvolt-vulnerability-disclosure.yml
+- type: VulnerabilityDisclosure
+  url: security/northvolt-vulnerability-disclosure.yml
+- type: Lifecycle
+  url: lifecycle/northvolt-lifecycle.yml
+- type: LLMsTxt
+  url: llms/northvolt-llms.txt
+x-enrichment:
+  date: '2026-08-26'
+  status: minimal
+  artifacts_added: 6
+  pass: local-v1
+x-coverage:
+  state: none
+  reason: defunct
+  detail: >-
+    Northvolt AB filed for bankruptcy on 12 March 2025 and its Swedish, German and Polish
+    assets were sold to Lyten during 2025; northvolt.com is now a frozen Gatsby archive
+    whose latest news item is dated 30 January 2025, and api.northvolt.com -- the only host
+    the company ever named that looks like an API host -- still resolves to a CloudFront
+    distribution but returns HTTP 502 "Failed to contact the origin" on every path.
+  evidence:
+  - url: https://api.northvolt.com/openapi.json
+    status: 502
+  - url: https://api.northvolt.com/
+    status: 502
+  - url: https://northvolt.com/news/
+    status: 200
+  checked: '2026-08-26'

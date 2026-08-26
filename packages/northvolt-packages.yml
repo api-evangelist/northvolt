@@ -1,0 +1,86 @@
+generated: '2026-08-26'
+method: searched
+source: >-
+  proxy.golang.org module metadata (@latest) for each first-party module in the
+  github.com/northvolt organization, plus negative searches of registry.npmjs.org,
+  pypi.org and crates.io for any package named or scoped "northvolt", 2026-08-26.
+note: >-
+  NONE OF THESE ARE API SDKs. Northvolt publishes no public API, so there is no client
+  library for one. What the github.com/northvolt organization does publish is a small set
+  of first-party Go modules written for its own factory floor -- drivers and wrappers for
+  industrial cameras, frame grabbers, contact image sensors and a crypto element. They are
+  real, registry-resolvable, first-party and dated, so they are recorded here as packages;
+  no `SDKs` pointer is wired into apis.yml, because wiring one would credit Northvolt with
+  an API client library it never shipped. Every module's last published release predates
+  the March 2025 bankruptcy by 18 months or more.
+registries_searched:
+- registry: npm
+  query: northvolt
+  results: 0
+- registry: pypi
+  query: northvolt
+  results: 0
+  status: 404
+- registry: crates.io
+  query: northvolt
+  results: 0
+- registry: go
+  query: github.com/northvolt/*
+  results: 5
+packages:
+- name: github.com/northvolt/go-multicam
+  registry: go
+  language: Go
+  official: true
+  kind: hardware-driver
+  description: Go language wrappers for the Euresys Multicam frame grabber library.
+  repository: https://github.com/northvolt/go-multicam
+  url: https://pkg.go.dev/github.com/northvolt/go-multicam
+  version: v0.8.0
+  published: '2023-05-11'
+- name: github.com/northvolt/go-sapera
+  registry: go
+  language: Go
+  official: true
+  kind: hardware-driver
+  description: Go wrappers to the SaperaLT SDK for industrial cameras and frame grabbers.
+  repository: https://github.com/northvolt/go-sapera
+  url: https://pkg.go.dev/github.com/northvolt/go-sapera
+  version: v0.3.0
+  published: '2023-09-05'
+- name: github.com/northvolt/go-kd6rmx
+  registry: go
+  language: Go
+  official: true
+  kind: hardware-driver
+  description: Go command interface to Mitsubishi Electric KD-MX contact image sensors.
+  repository: https://github.com/northvolt/go-kd6rmx
+  url: https://pkg.go.dev/github.com/northvolt/go-kd6rmx
+  version: v0.6.3
+  published: '2022-04-01'
+- name: github.com/northvolt/go-atecc-old
+  registry: go
+  language: Go
+  official: true
+  kind: hardware-driver
+  description: A driver for the Microchip ATECC608 secure element in Go.
+  repository: https://github.com/northvolt/go-atecc-old
+  url: https://pkg.go.dev/github.com/northvolt/go-atecc-old
+  version: v0.1.0
+  published: '2025-03-06'
+  note: >-
+    Repository was renamed to "-old" and archived on 2026-03-31; the v0.1.0 tag dated
+    2025-03-06 is six days before Northvolt AB filed for bankruptcy.
+- name: github.com/northvolt/batteryland
+  registry: go
+  language: Go
+  official: true
+  kind: experiment
+  description: "A Gopher's Adventures In Dynamicland - internal experiment."
+  repository: https://github.com/northvolt/batteryland
+  url: https://pkg.go.dev/github.com/northvolt/batteryland
+  version: v0.0.0-20230612133439-d7ab974e8de9
+  published: '2023-06-12'
+  note: Pseudo-version only; the module has never been tagged with a semantic version.
+sdk_count: 0
+package_count: 5
