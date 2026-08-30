@@ -49,6 +49,11 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: ParentCompany
+  url: https://apis.io/providers/lyten/
+  name: Lyten
+  x-relationship: acquired
+  x-evidence: "Northvolt AB filed for bankruptcy in Sweden on 12 March 2025; through 2025 its remaining assets in Sweden, Germany and Poland were acquired by Lyten. The company never published a public developer program, API reference or machine-readable "
 - type: DomainSecurity
   url: security/northvolt-domain-security.yml
 - type: Website
